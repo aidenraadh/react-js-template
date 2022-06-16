@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary'
+import Navigations from './components/Navigations'
+
+import CardsPage from './components/pages/CardsPage'
+import SVGIconsPage from './components/pages/SVGIconsPage'
 
 function App() {
+  const [sidebarShown, setSidebarShown] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ErrorBoundary>       
+      <BrowserRouter>
+        <Navigations
+          sidebarShown={sidebarShown}
+          toggleSidebar={setSidebarShown}
+          sidebarItems={[
+            {icon: 'layers', text: 'Cards', link: '/'},
+            {icon: 'layers', text: 'SVG Icons', link: '/svg-icons'},
+          ]}
+        />            
+        <div id='app'>
+          <Routes>
+            <Route path='/' exact element={<CardsPage/>}/>
+            <Route path='/svg-icons' exact element={<SVGIconsPage/>}/>
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 

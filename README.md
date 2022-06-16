@@ -1,3 +1,15 @@
+# Developer Notes
+
+## Description
+
+This is a React JS template. The theme used is inspired by Metronic themes by Keenthemes. Feel free to fork this.\
+Run `docker-compose -f docker-compose.dev.yml up -d` from root folder to run with docker in development mode.
+
+## Author
+Github: https://github.com/aidenraadh \
+Email: aidenraadhdev@gmail.com\
+Website: aidenraadh.com
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
