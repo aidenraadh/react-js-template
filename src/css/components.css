@@ -16,7 +16,7 @@ This is the layout styles of the button
 .btn{
 	display: inline-block;
 	position: relative;
-	padding: 0.6em 1.2em;
+	padding: 0.54em 1.2em;
 	text-align: center;
 	font-size: 1.38rem;
 	border-radius: 0.55rem;
@@ -408,32 +408,45 @@ All button in the group must be in the same size
 	transform: rotate(-180deg);
 }
 
-.sidebar-item .svg-icon > svg{
+.sidebar-item .menu-icon > svg,
+.sidebar-item .expand-icon > svg{
 	width: 1.8em;
 }
 
-.sidebar-item .svg-icon .path{
+.sidebar-item .menu-icon .path{
 	fill: #494B74;
 	transition: fill 0.3s;
 }
 
-.sidebar-item.active .svg-icon .path,
-.sidebar-item:hover .svg-icon .path,
-.sidebar-item:focus .svg-icon .path
+.sidebar-item.active .menu-icon .path,
+.sidebar-item:hover .menu-icon .path,
+.sidebar-item:focus .menu-icon .path
 {
 	fill: #3699FF;
 }
 
-.sidebar-item .svg-icon .stroke{
+.sidebar-item .menu-icon .stroke{
 	stroke: #494B74;
 	transition: stroke 0.3s;
 }
 
-.sidebar-item.active .svg-icon .stroke,
-.sidebar-item:hover .svg-icon .stroke,
-.sidebar-item:focus .svg-icon .stroke
+.sidebar-item.active .menu-icon .stroke,
+.sidebar-item:hover .menu-icon .stroke,
+.sidebar-item:focus .menu-icon .stroke
 {
 	stroke: #3699FF;
+}
+
+.sidebar-item .expand-icon{
+	margin: 0 0 0 auto;
+}
+
+.sidebar-item .expand-icon svg{
+	transition: transform 0.3s;
+}
+
+.sidebar-item .expand-icon .path{
+	fill: #3699FF;
 }
 
 .sidebar-item .text{
@@ -452,6 +465,17 @@ All button in the group must be in the same size
 .sidebar-item:focus .text
 {
 	color: #FFFFFF;
+}
+
+.sidebar .sub-items{
+	list-style-type: none;
+	max-height: 0;
+	transition: max-height 0.3s;
+	overflow: hidden;
+}
+
+.sidebar .sub-items .sidebar-item{
+	padding-left: 5.4rem;
 }
 
 /*
@@ -627,8 +651,16 @@ All button in the group must be in the same size
 .table-container th, .table-container td{
 	font-size: inherit;
 	text-align: left;
-	padding: 0.8em;
+	padding: 1.2em;
 	white-space: nowrap; 
+}
+
+.table-container th:first-child, .table-container td:first-child{
+	padding-left: 0;
+}
+
+.table-container th:last-child, .table-container td:last-child{
+	padding-right: 0;
 }
 
 .table-container th{
