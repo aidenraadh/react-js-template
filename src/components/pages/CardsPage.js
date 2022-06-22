@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import { Button } from '../Buttons'
 import {SimpleCard, PlainCard, TabbedCard, StatsCard, ToolCard} from '../Cards'
 import {Grid} from '../Layouts'
-import {Accordion, Collapsible} from '../Misc'
 
 function CardsPage(props){
     const [expand, setExpand] = useState(false)
@@ -13,15 +11,7 @@ function CardsPage(props){
             <TabbedCard/>,
             <StatsCard/>,
             <ToolCard/>,
-        ]}/>
-        <PlainCard
-            body={<>
-                <Button size={'lg'} type={'light'} attr={{onClick: () => {setExpand(state => !state)}}}/>
-                <span>
-                    adasdasdad ad asda das d 
-                </span>
-            </>}
-        />      
+        ]}/>    
     </>)
 }
 

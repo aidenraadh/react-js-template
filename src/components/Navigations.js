@@ -6,16 +6,35 @@ function Navigations(props){
     const location = useLocation()
 	const toggleSidebar = props.toggleSidebar
 	const subItemRefs = useRef({}) 
+	// Contains key and links all side bar item that has sub items
+	const subItemData = useRef((() => {
+		const data = []
+		props.sidebarItems.forEach((item, itemKey) => {
+			if(item.subItems !== undefined){
+				data.push({
+					key: itemKey.toString(),
+					links: item.subItems.map(subItem => subItem.link)
+				})
+			}
+		})
+		return data		
+	})())
+	// All heights of sidebar item's sub items
 	const [subItemsHeights, setSubItemsHeights] = useState(() => {
 		const heights = {}
-		props.sidebarItems.forEach((item, itemKey) => {
-			if(item.subItems !== undefined){ heights[`${itemKey}`] = 0 }
+		subItemData.current.forEach(data => {
+			heights[data.key] = 0 
 		})
 		return heights
 	})
-	// Expand the target sub items and collapse the rest
-	const expandSubItems = useCallback((itemKey) => {
+	const [activeSubItemKey, setActiveSubItemKey] = useState(null)
+	// Expand/collapse the target sub items and collapse the rest
+	const toggleSubItemHeight = useCallback(itemKey => {
 		setSubItemsHeights(state => {
+			// When the item key is null, dont change the state
+			if(itemKey === null){
+				return state
+			}
 			const newHeights = {}
 			for (const key in state) {
 				if(key === itemKey){
@@ -50,16 +69,27 @@ function Navigations(props){
 		}
 	}, [subItemsHeights])
 
-	// Hide the sidebar when the route is changed
     useEffect(() => {
+		// Hide the sidebar when the route is changed
 		toggleSidebar(false)
+		// Change active sub item key based on the route path
+		// If not found, set it to null
+		setActiveSubItemKey(state => {
+			const data = subItemData.current.find(data => data.links.includes(location.pathname))
+			return data === undefined ? null : data.key
+		})
     }, [location, toggleSidebar])  	
 
 	useEffect(() => {
+		// When the sidebar is collapsed, collapsed the sub items
 		if(props.sidebarShown === false){
 			collapedAllSubItems()
 		}
-	}, [props.sidebarShown])
+		// When the sidebar is expanded, expand the sub items
+		else if(props.sidebarShown === true){
+			toggleSubItemHeight(activeSubItemKey)
+		}
+	}, [props.sidebarShown, activeSubItemKey])
 
 	return (
 		<nav>
@@ -103,7 +133,8 @@ function Navigations(props){
 					if(item.subItems !== undefined){
 						return (
 							<li key={itemKey}>
-								<button type='button' className='sidebar-item' onClick={() => {expandSubItems(`${itemKey}`)}}>
+								<button type='button' className={`sidebar-item${activeSubItemKey === itemKey.toString() ? ' active' : ''}`} 
+								onClick={() => {toggleSubItemHeight(`${itemKey}`)}}>
 									<SVGIcons classes={'menu-icon'} name='layers' color={''} />
 									<span className="text">{item.text}</span> 
 									<SVGIcons classes={'expand-icon'} name='angle_down' attr={{style: {
