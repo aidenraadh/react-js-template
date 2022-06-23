@@ -810,7 +810,6 @@ export default function SVGIcons(props){
 }
 
 SVGIcons.defaultProps = {
-	color: 'blue',
 	classes: '',
 	attr: {},
 	getNames: false,

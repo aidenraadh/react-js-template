@@ -22,6 +22,24 @@ UserThumbnail.defaultProps = {
 }
 
 
+export function Separator(props){
+	const Tag = props.tag
+	const classes = `separator${props.classes ? ' '+props.classes : props.classes}`
+	if(Tag === 'hr'){
+		return <hr className={classes} {...props.attr}/>
+	}
+	return (
+		<Tag className={classes} {...props.attr}></Tag>
+	)
+}
+
+Separator.defaultProps = {
+	tag: 'hr', // String
+	classes: '', // String
+	attr: {}, // Objects
+}
+
+
 export class Collapsible extends React.Component{
     constructor(props){
 		super(props);

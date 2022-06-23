@@ -4,6 +4,8 @@ import ErrorBoundary from './components/ErrorBoundary'
 import Navigations from './components/Navigations'
 
 import CardsPage from './components/pages/CardsPage'
+import ButtonsPage from './components/pages/ButtonsPage'
+import FormsPage from './components/pages/FormsPage'
 import SVGIconsPage from './components/pages/SVGIconsPage'
 import TablePage from './components/pages/TablePage'
 
@@ -17,6 +19,8 @@ function App() {
           toggleSidebar={setSidebarShown}
           sidebarItems={[
             {icon: 'layers', text: 'Cards', link: '/'},          
+            {icon: 'layers', text: 'Buttons', link: '/buttons'},
+            {icon: 'layers', text: 'Forms', link: '/forms'},
             {icon: 'layers', text: 'Table', link: '/table'},
             {icon: 'layers', text: 'SVG Icons', link: '/svg-icons'},
           ]}
@@ -24,6 +28,8 @@ function App() {
         <div id='app'>
           <Routes>
             <Route path='/' exact element={<CardsPage/>}/>
+            <Route path='/buttons' exact element={<ButtonsPage/>}/>
+            <Route path='/forms' exact element={<FormsPage/>}/>
             <Route path='/table' exact element={<TablePage/>}/>
             <Route path='/svg-icons' exact element={<SVGIconsPage/>}/>
           </Routes>

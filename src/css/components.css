@@ -913,6 +913,18 @@ All button in the group must be in the same size
   	cursor: pointer;
 }
 
+.multi-choice.sm{
+	font-size: 1.58rem;
+}
+
+.multi-choice.md{
+	font-size: 1.78rem;
+}
+
+.multi-choice.lg{
+	font-size: 2rem;
+}
+
 .multi-choice input{
   	position: absolute;
   	opacity: 0;
@@ -922,7 +934,7 @@ All button in the group must be in the same size
 }
 
 .multi-choice .choice-name{
-	font-size: 1.42rem;
+	font-size: 1.48rem;
 	padding-left: 0.4em;
 	order: 2;
 }
@@ -972,7 +984,7 @@ All button in the group must be in the same size
 	width: 0.67em; height: 0.33em;
   	border-left: 0.134em solid;
 	border-bottom: 0.134em solid;
-	transform: rotate(-45deg);
+	transform: rotate(-45deg) translate(0.06em, -0.04em);
 }
 
 .multi-choice.checkbox.basic .checkmark > span{
@@ -1001,6 +1013,34 @@ All button in the group must be in the same size
 
 .multi-choice input:checked ~ .checkmark > span{
 	opacity: 1;
+}
+
+.multi-choice.switch .checkmark{
+	justify-content: start;
+	width: 2.6em;
+	padding: 0.26em;
+	border-radius: 6em;
+	background-color: #EBEDF3;
+	transition: background-color 0.2s ease;	
+}
+
+.multi-choice.switch .checkmark > span{
+	opacity: 1;
+	border-radius: 50%;
+	width: 1em;
+	height: 1em;
+	background-color: #FFFFFF;
+	/* transform: translateX(100%); */
+	transform: translateX(0);
+	transition: transform 0.3s;
+}
+
+.multi-choice.switch input:checked ~ .checkmark{
+	background-color: #3699FF;
+}
+
+.multi-choice.switch input:checked ~ .checkmark > span{
+	transform: translateX(1.12em);
 }
 
 /*
@@ -2160,3 +2200,16 @@ All button in the group must be in the same size
 .accordion.solid.expanded .body-wrapper{
 	border: 0.1rem solid #D9D9D9;
 } */
+
+/*
+|--------------------------------------------------------------------------
+| Separator
+|--------------------------------------------------------------------------
+*/
+
+.separator{
+	display: block;
+	background-color: #D9D9D9;
+	height: 0.1rem;	
+	border: none
+}
