@@ -121,9 +121,6 @@ html font size is 8.75px at 375 px, 1.6rem = 14px
 	.modal .modal-content, .modal.sm .modal-content{
 		width: 92vw;
 	}
-	.content-sized-modal.modal .modal-content{
-		width: 92vw !important;
-	}
 	.table-stats{
 		width: 100%;
 	}
