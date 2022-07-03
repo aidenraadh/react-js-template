@@ -1,5 +1,89 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { usePopper } from 'react-popper';
 import SVGIcons from './SVGIcons'
+import {Button} from './Buttons'
+
+export function Dropdown(props){
+    const [tooltipDisplay, setTooltipDisplay] = useState(false)
+	const [tooltipVisible, setTooltipVisible] = useState(false)
+    const [referenceElement, setReferenceElement] = useState(null)
+    const [popperElement, setPopperElement] = useState(null)
+	const {styles, attributes} = usePopper(referenceElement, popperElement, {
+		placement: props.placement,
+		modifiers: [
+			{
+				name: 'offset',
+				options: {
+					offset: [0, 8],
+				},
+			},			
+		]		
+	})
+	const classes = `dropdown${props.classes ? ' ' + props.classes : ''}`
+	const buttonProps = {...props.button}
+	buttonProps.classes = `dropdown-btn${props.button.classes ? ' ' + props.button.classes : ''}`
+	// buttonProps.text = (<>
+	// 	{buttonProps.text}
+	// 	<span className='arrow'></span>
+	// </>)
+	
+	useEffect(() => {
+		if(popperElement){
+			if(tooltipVisible){
+				popperElement.classList.remove('hidden')
+				popperElement.setAttribute('data-show', '')
+				setTooltipDisplay(true)
+			}
+			else{
+				popperElement.classList.add('hidden')
+				setTooltipDisplay(false)
+			}
+		}		
+	}, [tooltipVisible])
+
+	useEffect(() => {
+		if(popperElement && tooltipDisplay === false){
+			popperElement.addEventListener('transitionend', () => {
+				popperElement.removeAttribute('data-show')
+			}, {once: true})			
+		}
+	}, [tooltipDisplay])
+
+	return (
+		<div className={classes} {...props.attr}>
+			<Button
+				{...buttonProps}
+				attr={{
+					ref: setReferenceElement,
+					onClick: () => {setTooltipVisible(state => !state)},
+					onBlur: () => {setTooltipVisible(state => !state)}
+				}}
+			/>
+			<div ref={setPopperElement} className='tooltip hidden' style={styles.popper} {...attributes.popper}>
+				<ul className='list'>
+					{props.items.map((item, index) => (
+						<li key={index}>{item}</li>
+					))}
+				</ul>
+			</div>
+		</div>
+	)
+}
+
+Dropdown.defaultProps = {
+	// All props of <Button/> component
+	button: {
+		text: 'Dropdown'
+	},
+	placement: 'bottom-start', // 'bottom-start'|'bottom-end'|'top-start'|'top-end'|'left-start'|'left-end'|'right-start'|'right-end'
+	items: [
+		<a href='#'>Action here</a>, 
+		<a href='#'>Another action here</a>, 
+		<a href='#'>Another action here</a>
+	],
+	classes: '',
+	attr: {},
+}
 
 export function UserThumbnail(props){
 	const classes = props.classes ? ` ${props.classes}` : ''
@@ -16,7 +100,7 @@ export function UserThumbnail(props){
 UserThumbnail.defaultProps = {
 	tag: 'div', // String
 	userName: 'Name', // String
-	imgUrl: '', // String
+	imgUrl: 'images/user_default_thumbnail.jpg', // String
 	classes: '', // String
 	attr: {}, // Objects
 }
@@ -143,7 +227,7 @@ export class Accordion extends React.Component{
 					<HeadingTag className="heading text-dark-75 text-medium flex-row items-center">
 						{
 							this.props.heading_icon ? 
-							<SVGIcons name={this.props.heading_icon}/>	: ''
+							<SVGIcons name={this.props.heading_icon} color={'blue'}/> : ''
 						}					
 						{this.props.heading}
 					</HeadingTag>

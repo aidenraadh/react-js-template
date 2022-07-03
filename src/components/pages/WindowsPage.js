@@ -11,9 +11,18 @@ function WindowsPage(props){
         <SimpleCard
             heading={'Modal'}
             body={<>
-                <Button text={'Small modal'} attr={{onClick: () => {setSmModalShown(true)}}}/>
-                <Button text={'Default modal'} attr={{onClick: () => {setMdModalShown(true)}}}/>
-                <Button text={'Popup'} attr={{onClick: () => {setPopupShown(true)}}}/>
+                <Button text={'Small modal'} attr={{
+                    onClick: () => {setSmModalShown(true)},
+                    style: {marginRight: '1.4rem'}
+                }}/>
+                <Button text={'Default modal'} attr={{
+                    onClick: () => {setMdModalShown(true)},
+                    style: {marginRight: '1.4rem'}
+                }}/>
+                <Button text={'Popup'} attr={{
+                    onClick: () => {setPopupShown(true)},
+                    style: {marginRight: '1.4rem'}
+                }}/>
             </>}
         />
         <Modal

@@ -9,6 +9,7 @@ import FormsPage from './components/pages/FormsPage'
 import WindowsPage from './components/pages/WindowsPage'
 import SVGIconsPage from './components/pages/SVGIconsPage'
 import TablePage from './components/pages/TablePage'
+import MiscellaneousPage from './components/pages/MiscellaneousPage'
 
 function App() {
   const [sidebarShown, setSidebarShown] = useState(false)
@@ -19,12 +20,13 @@ function App() {
           sidebarShown={sidebarShown}
           toggleSidebar={setSidebarShown}
           sidebarItems={[
-            {icon: 'layers', text: 'Cards', link: '/'},          
-            {icon: 'layers', text: 'Buttons', link: '/buttons'},
-            {icon: 'layers', text: 'Forms', link: '/forms'},
-            {icon: 'layers', text: 'Windows', link: '/windows'},
-            {icon: 'layers', text: 'Table', link: '/table'},
-            {icon: 'layers', text: 'SVG Icons', link: '/svg-icons'},
+            {icon: 'blocks', text: 'Cards', link: '/'},          
+            {icon: 'export', text: 'Buttons', link: '/buttons'},
+            {icon: 'write', text: 'Forms', link: '/forms'},
+            {icon: 'share', text: 'Windows', link: '/windows'},
+            {icon: 'clipboard_list', text: 'Table', link: '/table'},
+            {icon: 'other', text: 'Miscellaneous', link: '/miscellaneous'},
+            {icon: 'image', text: 'SVG Icons', link: '/svg-icons'},
           ]}
         />            
         <div id='app'>
@@ -34,6 +36,7 @@ function App() {
             <Route path='/forms' exact element={<FormsPage/>}/>
             <Route path='/windows' exact element={<WindowsPage/>}/>
             <Route path='/table' exact element={<TablePage/>}/>
+            <Route path='/miscellaneous' exact element={<MiscellaneousPage/>}/>
             <Route path='/svg-icons' exact element={<SVGIconsPage/>}/>
           </Routes>
         </div>
