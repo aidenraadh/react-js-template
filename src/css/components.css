@@ -497,7 +497,7 @@ All button in the group must be in the same size
     display: none;
 	opacity: 1;
 	z-index: 95;
-	transition: opacity 200ms;
+	transition: opacity 300ms;
 }
 
 .dropdown .tooltip[data-show]{

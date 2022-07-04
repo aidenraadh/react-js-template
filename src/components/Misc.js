@@ -22,10 +22,6 @@ export function Dropdown(props){
 	const classes = `dropdown${props.classes ? ' ' + props.classes : ''}`
 	const buttonProps = {...props.button}
 	buttonProps.classes = `dropdown-btn${props.button.classes ? ' ' + props.button.classes : ''}`
-	// buttonProps.text = (<>
-	// 	{buttonProps.text}
-	// 	<span className='arrow'></span>
-	// </>)
 	
 	useEffect(() => {
 		if(popperElement){
@@ -174,14 +170,24 @@ Collapsible.defaultProps = {
 }
 
 export function Label(props){
-	const Tag = (props.tag ? props.tag : 'span');
-	const classes = (props.classes ? ' '+props.classes : '');
+	const Tag =  props.tag
+	const classes = `label ${props.type} ${props.color}` +
+	(props.classes ? ' '+props.classes : '')
+
 	return (
-		<Tag className={'label '+props.type+' '+props.color+classes}
-		{...props.attr}>
+		<Tag className={classes} {...props.attr}>
 			{props.text}
 		</Tag>		
 	);
+}
+
+Label.defaultProps = {
+	tag: 'span', // String
+	text: 'Label', // String / JSX
+	type: 'light', // String 'solid|light'
+	color: 'blue', // String 'blue|red|green|purple|orange|gray'
+	classes: '',
+	attr: {}
 }
 
 /*
