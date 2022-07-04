@@ -11,10 +11,10 @@ function Navigations(props){
 	const subItemData = useRef((() => {
 		const data = []
 		props.sidebarItems.forEach((item, itemKey) => {
-			if(item.subItems !== undefined){
+			if(item.subMenu !== undefined){
 				data.push({
 					key: itemKey.toString(),
-					links: item.subItems.map(subItem => subItem.link)
+					links: item.subMenu.map(subItem => subItem.link)
 				})
 			}
 		})
@@ -94,14 +94,10 @@ function Navigations(props){
 
 	return (
 		<nav>
+			{/*----------- Topbar -----------*/}
 			<section className="topbar">
-				<a href={props.appUrl}
-				className="topbar-item app-brand flex-row content-center items-center">
-					{props.appLogoUrl ? <img src={props.appLogoUrl} alt={'User avatar'} /> : ''}
-				</a>
 				<div className="left-widgets">
-					<button type="button" 
-					className="topbar-item show-sidebar-btn"
+					<button type="button" className="topbar-item show-sidebar-btn"
 					onClick={() => {props.toggleSidebar(state => !state)}}>
 						<SVGIcons
 							name={'article'} color={'blue'}
@@ -121,6 +117,7 @@ function Navigations(props){
 				</ul>
 			</section>
 
+			{/*----------- Sidebar -----------*/}
 			<section className={'sidebar'+(props.sidebarShown ? ' shown' : '')}>
 				<button type="button" className="sidebar-item toggle-sidebar-btn"
 				onClick={() => {props.toggleSidebar(state => !state)}}>
@@ -131,12 +128,13 @@ function Navigations(props){
 				</button>								
 				<ul className="sidebar-items-container">
 				{props.sidebarItems.map((item, itemKey) => {
-					if(item.subItems !== undefined){
+					if(item.subMenu !== undefined){
 						return (
 							<li key={itemKey}>
-								<button type='button' className={`sidebar-item${activeSubItemKey === itemKey.toString() ? ' active' : ''}`} 
-								onClick={() => {toggleSubItemHeight(`${itemKey}`)}}>
-									<SVGIcons classes={'menu-icon'} name='layers' color={''} />
+								<button className={`sidebar-item${activeSubItemKey === itemKey.toString() ? ' active' : ''}`}
+								onClick={() => {toggleSubItemHeight(`${itemKey}`)}}
+								type='button'>
+									<SVGIcons classes={'menu-icon'} name={item.icon} color={''} />
 									<span className="text">{item.text}</span> 
 									<SVGIcons classes={'expand-icon'} name='angle_down' attr={{style: {
 										transform: `rotate(${subItemsHeights[`${itemKey}`] ? '0deg' : '-90deg'})`
@@ -144,11 +142,11 @@ function Navigations(props){
 								</button>			
 								<ul className='sub-items' ref={el => (subItemRefs.current[`${itemKey}`] = el)} 
 								style={{maxHeight: subItemsHeights[`${itemKey}`]}}>
-									{item.subItems.map((subItem, subItemKey) => (
+									{item.subMenu.map((subItem, subItemKey) => (
 										<li key={subItemKey}>
-											<NavLink to={`${subItem.link ? subItem.link : ''}`} exact="true"
-											className={({isActive}) => (`sidebar-item`+(isActive ? ' active': ''))}> 
-												<span className="text">{subItem.text ? subItem.text : 'Menu'}</span> 
+											<NavLink className={({isActive}) => (`sidebar-item`+(isActive ? ' active': ''))} 
+											to={subItem.link} exact="true"> 
+												<span className="text">{subItem.text}</span> 
 											</NavLink> 																		
 										</li>										
 									))}
@@ -158,10 +156,10 @@ function Navigations(props){
 					}
 					return (
 						<li key={itemKey}>
-							<NavLink to={`${item.link ? item.link : ''}`} exact="true"
+							<NavLink to={item.link} exact="true"
 							className={({isActive}) => (`sidebar-item`+(isActive ? ' active': ''))}> 
-								<SVGIcons classes={'menu-icon'} name={item.icon ? item.icon : 'layers'} color={''} />
-								<span className="text">{item.text ? item.text : 'Menu'}</span> 
+								<SVGIcons classes={'menu-icon'} name={item.icon} color={''} />
+								<span className="text">{item.text}</span> 
 							</NavLink> 						
 						</li>							
 					)					
@@ -173,15 +171,27 @@ function Navigations(props){
 }
 
 Navigations.defaultProps = {
-	appUrl: 'Test App', // String
-	appLogoUrl: '', // String
 	leftWidgets: [], // Array of string or JSX
 	rightWidgets: [
 		<UserThumbnail 
 		    userName={'Hi, Aiden'}
 		/> 		
-	], // Array of string or JSX
-	sidebarItems: [] // Array of objects
+	],
+	// Array of objects
+	sidebarItems: [
+		{
+			text: 'Menu', link: '/#', icon: 'layers'
+		},
+		{
+			text: 'Menu with submenu', icon: 'layers', subMenu: [
+				{text: 'Sub Menu 1', link: '/#'},
+				{text: 'Sub Menu 2', link: '/#'},
+			]
+		},
+		{
+			text: 'Another Menu', link: '/#', icon: 'layers'
+		},			
+	] // Array of objects
 }
 
 export default Navigations

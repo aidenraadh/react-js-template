@@ -28,6 +28,7 @@ function ButtonsPage(props){
                         <Button color={'red'} attr={{style: btnStyles}}/>
                         <Button color={'orange'} attr={{style: btnStyles}}/>
                         <Button color={'purple'} attr={{style: btnStyles}}/>
+                        <Button color={'black'} attr={{style: btnStyles}}/>
                     </div>
                     <div className='flex-row wrap items-center'>
                         <Button color={'blue'} iconName={'blocks'} text={'With icon'} attr={{style: btnStyles}}/>
@@ -35,6 +36,7 @@ function ButtonsPage(props){
                         <Button color={'red'} iconName={'blocks'} text={'With icon'} attr={{style: btnStyles}}/>
                         <Button color={'orange'} iconName={'blocks'} text={'With icon'} attr={{style: btnStyles}}/>
                         <Button color={'purple'} iconName={'blocks'} text={'With icon'} attr={{style: btnStyles}}/>
+                        <Button color={'black'} iconName={'blocks'} text={'With icon'} attr={{style: btnStyles}}/>
                     </div>         
                     <div className='flex-row wrap items-center'>
                         <Button color={'blue'} iconName={'blocks'} iconOnly={true} text={'Icon only'} attr={{style: btnStyles}}/>
@@ -42,6 +44,7 @@ function ButtonsPage(props){
                         <Button color={'red'} iconName={'blocks'} iconOnly={true} text={'Icon only'} attr={{style: btnStyles}}/>
                         <Button color={'orange'} iconName={'blocks'} iconOnly={true} text={'Icon only'} attr={{style: btnStyles}}/>
                         <Button color={'purple'} iconName={'blocks'} iconOnly={true} text={'Icon only'} attr={{style: btnStyles}}/>
+                        <Button color={'black'} iconName={'blocks'} iconOnly={true} text={'Icon only'} attr={{style: btnStyles}}/>
                     </div>                                 
                 </section>
                 <section>
@@ -53,6 +56,7 @@ function ButtonsPage(props){
                         <Button type={'light'} color={'red'} attr={{style: btnStyles}}/>
                         <Button type={'light'} color={'orange'} attr={{style: btnStyles}}/>
                         <Button type={'light'} color={'purple'} attr={{style: btnStyles}}/>
+                        <Button type={'light'} color={'black'} attr={{style: btnStyles}}/>
                     </div>
                     <div className='flex-row wrap items-center'>
                         <Button type={'light'} color={'blue'} iconName={'blocks'} text={'With icon'} attr={{style: btnStyles}}/>
@@ -60,6 +64,7 @@ function ButtonsPage(props){
                         <Button type={'light'} color={'red'} iconName={'blocks'} text={'With icon'} attr={{style: btnStyles}}/>
                         <Button type={'light'} color={'orange'} iconName={'blocks'} text={'With icon'} attr={{style: btnStyles}}/>
                         <Button type={'light'} color={'purple'} iconName={'blocks'} text={'With icon'} attr={{style: btnStyles}}/>
+                        <Button type={'light'} color={'black'} iconName={'blocks'} text={'With icon'} attr={{style: btnStyles}}/>
                     </div>         
                     <div className='flex-row wrap items-center'>
                         <Button type={'light'} color={'blue'} iconName={'blocks'} iconOnly={true} text={'Icon only'} attr={{style: btnStyles}}/>
@@ -67,6 +72,7 @@ function ButtonsPage(props){
                         <Button type={'light'} color={'red'} iconName={'blocks'} iconOnly={true} text={'Icon only'} attr={{style: btnStyles}}/>
                         <Button type={'light'} color={'orange'} iconName={'blocks'} iconOnly={true} text={'Icon only'} attr={{style: btnStyles}}/>
                         <Button type={'light'} color={'purple'} iconName={'blocks'} iconOnly={true} text={'Icon only'} attr={{style: btnStyles}}/>
+                        <Button type={'light'} color={'black'} iconName={'blocks'} iconOnly={true} text={'Icon only'} attr={{style: btnStyles}}/>
                     </div>                      
                 </section>                
                 <section>
