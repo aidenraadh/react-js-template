@@ -11,6 +11,16 @@ import SVGIconsPage from './components/pages/SVGIconsPage'
 import TablePage from './components/pages/TablePage'
 import MiscellaneousPage from './components/pages/MiscellaneousPage'
 
+const navigations = [
+  {icon: 'blocks', text: 'Cards', path: '/'},          
+  {icon: 'export', text: 'Buttons', path: '/buttons'},
+  {icon: 'write', text: 'Forms', path: '/forms'},
+  {icon: 'share', text: 'Windows', path: '/windows'},
+  {icon: 'clipboard_list', text: 'Table', path: '/table'},
+  {icon: 'other', text: 'Miscellaneous', path: '/miscellaneous'},
+  {icon: 'image', text: 'SVG Icons', path: '/svg-icons'},  
+]
+
 function App() {
   const [sidebarShown, setSidebarShown] = useState(false)
   return (
@@ -19,15 +29,10 @@ function App() {
         <Navigations
           sidebarShown={sidebarShown}
           toggleSidebar={setSidebarShown}
-          sidebarItems={[
-            {icon: 'blocks', text: 'Cards', link: '/'},          
-            {icon: 'export', text: 'Buttons', link: '/buttons'},
-            {icon: 'write', text: 'Forms', link: '/forms'},
-            {icon: 'share', text: 'Windows', link: '/windows'},
-            {icon: 'clipboard_list', text: 'Table', link: '/table'},
-            {icon: 'other', text: 'Miscellaneous', link: '/miscellaneous'},
-            {icon: 'image', text: 'SVG Icons', link: '/svg-icons'},
-          ]}
+          sidebarItems={navigations}
+          pageHeadings={navigations.map(nav => ({
+            title: nav.text, icon: nav.icon, path: nav.path
+          }))}
         />            
         <div id='app'>
           <Routes>
