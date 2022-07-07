@@ -1,14 +1,18 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Button } from '../Buttons'
 import {SimpleCard, PlainCard, TabbedCard, StatsCard, ToolCard} from '../Cards'
 import {Grid} from '../Layouts'
 
-function CardsPage(props){
+function CardsPage({setPageHeading}){
     const [expand, setExpand] = useState(false)
     const loremIpsum = useMemo(() => (
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '+
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     ))
+    useEffect(() => {
+        setPageHeading({title: 'Cards', icon: 'blocks'})
+    }, [])
+    
     return (<>
         <Grid numOfColumns={2} collapsedOn={'mobile'} items={[
             <SimpleCard 

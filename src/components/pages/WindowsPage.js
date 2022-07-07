@@ -1,12 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from '../Buttons'
 import {SimpleCard} from '../Cards'
 import {Modal, ConfirmPopup} from '../Windows'
 
-function WindowsPage(props){
+function WindowsPage({setPageHeading}){
     const [smModalShown, setSmModalShown] = useState(false)
     const [mdModalShown, setMdModalShown] = useState(false)
     const [popupShown, setPopupShown] = useState(false)
+    useEffect(() => {
+        setPageHeading({title: 'Windows', icon: 'share'})
+    }, [])   
+
     return (<>  
         <SimpleCard
             heading={'Modal'}

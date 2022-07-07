@@ -1,10 +1,10 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import {SimpleCard} from '../Cards'
 import {TextInput, TextInputWithBtn, Checkbox, Radio, Select, Switch, Textarea, TextInputAddon, SelectAddon} from '../Forms'
 import { Grid } from '../Layouts'
 import { Separator } from '../Misc'
 
-function FormsPage(props){
+function FormsPage({setPageHeading}){
     const headingStyles = useMemo(() => ({
         fontSize: '1.66rem',
         marginTop: '2.4rem'
@@ -12,6 +12,10 @@ function FormsPage(props){
     const separatorStyles = {
         margin: '1.6rem 0'
     } 
+    useEffect(() => {
+        setPageHeading({title: 'Forms', icon: 'write'})
+    }, [])
+
     return (<>
         <SimpleCard
             heading={'Forms'}

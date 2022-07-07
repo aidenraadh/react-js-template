@@ -1,15 +1,19 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Button } from '../Buttons'
 import {SimpleCard} from './../Cards'
 import {Accordion, Collapsible, Dropdown, UserThumbnail, Separator} from './../Misc'
 
-function MiscellaneousPage(props){
+function MiscellaneousPage({setPageHeading}){
     const [expandAccordion, setExpandAccordion] = useState(false)
     const [expandCollapsible, setExpandCollapsible] = useState(false)
     const loremIpsum = useMemo(() => (
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. '+
         'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     ))    
+    useEffect(() => {
+        setPageHeading({title: 'Miscellaneous', icon: 'other'})
+    }, [])
+
     return (<>
         <SimpleCard
             heading={'Miscellaneous'}

@@ -1,9 +1,9 @@
-import { useMemo} from 'react'
+import { useEffect, useMemo} from 'react'
 import {SimpleCard} from '../Cards'
 import {Button} from '../Buttons'
 import {Separator} from '../Misc'
 
-function ButtonsPage(props){
+function ButtonsPage({setPageHeading}){
     const btnStyles = useMemo(() => ({
         marginRight: '1rem',
         marginBottom: '1.4rem'
@@ -15,6 +15,10 @@ function ButtonsPage(props){
     const separatorStyles = {
         margin: '1.6rem 0'
     } 
+    useEffect(() => {
+        setPageHeading({title: 'Buttons', icon: 'export'})
+    }, [])
+
     return (<>
         <SimpleCard
             heading={'Buttons'}

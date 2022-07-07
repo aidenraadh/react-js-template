@@ -3,11 +3,12 @@ import {SimpleCard} from '../Cards'
 import {Grid} from '../Layouts'
 import { useEffect, useRef, useState } from "react"
 
-function SVGIconsPage(props){
+function SVGIconsPage({setPageHeading}){
     const ref = useRef()
     const [iconNames, setIconNames] = useState([])
 
     useEffect(() => {
+        setPageHeading({title: 'SVG Icons', icon: 'image'})
         setIconNames(
             ref.current.firstChild.innerHTML.split(',')
         )

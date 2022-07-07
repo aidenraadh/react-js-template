@@ -23,26 +23,40 @@ const navigations = [
 
 function App() {
   const [sidebarShown, setSidebarShown] = useState(false)
+  const [pageHeading, setPageHeading] = useState({title: '', icon: ''})
+
   return (
     <ErrorBoundary>       
       <BrowserRouter>
         <Navigations
+          pageHeading={pageHeading}
           sidebarShown={sidebarShown}
           toggleSidebar={setSidebarShown}
           sidebarItems={navigations}
-          pageHeadings={navigations.map(nav => ({
-            title: nav.text, icon: nav.icon, path: nav.path
-          }))}
         />            
         <div id='app'>
           <Routes>
-            <Route path='/' exact element={<CardsPage/>}/>
-            <Route path='/buttons' exact element={<ButtonsPage/>}/>
-            <Route path='/forms' exact element={<FormsPage/>}/>
-            <Route path='/windows' exact element={<WindowsPage/>}/>
-            <Route path='/table' exact element={<TablePage/>}/>
-            <Route path='/miscellaneous' exact element={<MiscellaneousPage/>}/>
-            <Route path='/svg-icons' exact element={<SVGIconsPage/>}/>
+            <Route path='/' exact element={
+              <CardsPage setPageHeading={setPageHeading}/>
+            }/>
+            <Route path='/buttons' exact element={
+              <ButtonsPage setPageHeading={setPageHeading}/>
+            }/>
+            <Route path='/forms' exact element={
+              <FormsPage setPageHeading={setPageHeading}/>
+            }/>
+            <Route path='/windows' exact element={
+              <WindowsPage setPageHeading={setPageHeading}/>
+            }/>
+            <Route path='/table' exact element={
+              <TablePage setPageHeading={setPageHeading}/>
+            }/>
+            <Route path='/miscellaneous' exact element={
+              <MiscellaneousPage setPageHeading={setPageHeading}/>
+            }/>
+            <Route path='/svg-icons' exact element={
+              <SVGIconsPage setPageHeading={setPageHeading}/>
+            }/>
           </Routes>
         </div>
       </BrowserRouter>

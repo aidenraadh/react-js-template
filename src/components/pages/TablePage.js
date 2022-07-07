@@ -1,13 +1,18 @@
 import Table from '../Table'
 import {PlainCard} from '../Cards'
+import { useEffect } from 'react'
 
-function TablePage(props){
+function TablePage({setPageHeading}){
     const rows = [
         ['Lorem ipsum', 'Lorem ipsum', 'Lorem ipsum'],
         ['Lorem ipsum', 'Lorem ipsum', 'Lorem ipsum'],
         ['Lorem ipsum', 'Lorem ipsum', 'Lorem ipsum'],
         ['Lorem ipsum', 'Lorem ipsum', 'Lorem ipsum']
     ]
+    useEffect(() => {
+        setPageHeading({title: 'Table', icon: 'clipboard_list'})
+    }, [])    
+
     return (
         <PlainCard
             body={

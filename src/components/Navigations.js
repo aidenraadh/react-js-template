@@ -8,7 +8,6 @@ function Navigations(props){
 	const toggleSidebar = props.toggleSidebar
 	const topbarRef = useRef()
 	const subItemRefs = useRef({}) 
-	const [pageHeading, setPageHeading] = useState({title: '', icon: ''})
 	// Contains key and links all side bar item that has sub items
 	const subItemData = useRef((() => {
 		const data = []
@@ -95,17 +94,6 @@ function Navigations(props){
 	}, [props.sidebarShown, activeSubItemKey])
 
 	useEffect(() => {
-		setPageHeading(() => {
-			const targetPageHeading = props.pageHeadings.find(pageHeading => (
-				pageHeading.path === location.pathname
-			))
-			return {
-				title: targetPageHeading.title, icon: targetPageHeading.icon
-			}
-		})
-	}, [location])
-
-	useEffect(() => {
 		window.onscroll = e => {
 			if(document.body.scrollTop > 0 || document.documentElement.scrollTop > 0){
 				if(!topbarRef.current.classList.contains('shadowed')){
@@ -123,10 +111,10 @@ function Navigations(props){
 		<header className='toolbar'>
 			<h1 className='page-heading'>
 				{
-					pageHeading.icon === '' ? '' :
-					<SVGIcons name={pageHeading.icon} color={'blue'}/>
+					props.pageHeading.icon === '' ? '' :
+					<SVGIcons name={props.pageHeading.icon} color={'blue'}/>
 				}
-				<span className='title text-semi-bold'>{pageHeading.title}</span>
+				<span className='title text-semi-bold'>{props.pageHeading.title}</span>
 			</h1>
 			<section></section>
 		</header>	
@@ -205,6 +193,7 @@ function Navigations(props){
 }
 
 Navigations.defaultProps = {
+	pageHeading: {title: '', icon: ''},
 	leftWidgets: [], // Array of string or JSX
 	rightWidgets: [
 		<UserThumbnail 
