@@ -20,6 +20,7 @@ This is the layout styles of the button
 	text-align: center;
 	font-size: 1.38rem;
 	border-radius: 0.55rem;
+	font-weight: 500;
 	transition-property: background-color, color;
 	transition-duration: 0.2s, 0.2s;
 }
@@ -80,15 +81,16 @@ This is the layout styles of the button
 }
 
 .btn.btn-sm{
-	font-size: 1.26rem;
+	padding: 0.46em 1em;
+	font-size: 1.36rem;
 }
 
 .btn.btn-md{
-	font-size: 1.38rem;
+	font-size: 1.48rem;
 }
 
 .btn.btn-lg{
-	font-size: 1.52rem;	
+	font-size: 1.62rem;
 }
 
 
@@ -101,7 +103,6 @@ This is the layout styles of the button
 */
 
 .btn-primary{
-	font-weight: normal;
 	color: #FFF;
 }
 
@@ -164,10 +165,6 @@ This is the layout styles of the button
 	<span class="btn-text"><!-- Your text here --></span>
 </button>
 */
-
-.btn-light{
-	font-weight: 500;
-}
 
 .btn-light:hover, .btn-light.active,
 .btn-light:hover .path, .btn-light.active .path{
@@ -775,25 +772,26 @@ All button in the group must be in the same size
 .base-input input, .base-input select, .base-input textarea{
 	width: 100%;
 	display: inline-block;
-	padding: 0.5em 1.1em;
+	padding: 0.54em 1em;
 	border-radius: 0.55rem;
 	color: inherit;
-	font-size: 1.4rem;
+	font-size: 1.48rem;
 }
 
 .base-input.sm-input input, .base-input.sm-input select,
 .base-input.sm-input textarea{
-	font-size: 1.27rem;
+	padding: 0.46em 0.8em;
+	font-size: 1.36rem;
 }
 
 .base-input.md-input input, .base-input.md-input select,
 .base-input.md-input textarea{
-	font-size: 1.39rem;
+	font-size: 1.48rem;
 }
 
 .base-input.lg-input input, .base-input.lg-input select,
 .base-input.lg-input textarea{
-	font-size: 1.53rem;		
+	font-size: 1.62rem;
 }
 
 .base-input.outline input, .base-input.outline select,
@@ -877,9 +875,9 @@ All button in the group must be in the same size
 .addon-input .addon{
 	display: inline-block;
 	flex-shrink: 0;
-	padding: 0.6em 1em;
+	padding: 0.54em 1em;
 	border-radius: 0.55rem 0 0 0.55rem;
-	font-size: 1.4rem;
+	font-size: 1.48rem;
 	color: inherit;
 	border: 0.2rem solid #E4E6EF;
 	border-right: none;
@@ -894,9 +892,9 @@ All button in the group must be in the same size
 .addon-input input, .addon-input select{
 	display: block;
 	width: 100%;
-	padding: 0.6em 1em;
+	padding: 0.54em 1em;
 	border-radius: 0 0.55rem 0.55rem 0;
-	font-size: 1.4rem;
+	font-size: 1.8rem;
 	color: inherit;
 	border: 0.2rem solid #E4E6EF;
 	transition: border-color 0.3s;	
@@ -908,17 +906,18 @@ All button in the group must be in the same size
 
 .addon-input.sm-input input, .addon-input.sm-input select,
 .addon-input.sm-input .addon{
+	padding: 0.46em 0.8em;
 	font-size: 1.36rem;
 }
 
 .addon-input.md-input input, .addon-input.md-input select,
 .addon-input.md-input .addon{
-	font-size: 1.4rem;
+	font-size: 1.48rem;
 }
 
 .addon-input.lg-input input, .addon-input.lg-input select,
 .addon-input.lg-input .addon{
-	font-size: 1.5rem;	
+	font-size: 1.62rem;
 }
 
 /*
