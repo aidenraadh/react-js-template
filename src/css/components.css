@@ -82,15 +82,15 @@ This is the layout styles of the button
 
 .btn.btn-sm{
 	padding: 0.46em 1em;
-	font-size: 1.36rem;
+	font-size: 1.32rem;
 }
 
 .btn.btn-md{
-	font-size: 1.48rem;
+	font-size: 1.44rem;
 }
 
 .btn.btn-lg{
-	font-size: 1.62rem;
+	font-size: 1.58rem;
 }
 
 
@@ -781,17 +781,17 @@ All button in the group must be in the same size
 .base-input.sm-input input, .base-input.sm-input select,
 .base-input.sm-input textarea{
 	padding: 0.46em 0.8em;
-	font-size: 1.36rem;
+	font-size: 1.32rem;
 }
 
 .base-input.md-input input, .base-input.md-input select,
 .base-input.md-input textarea{
-	font-size: 1.48rem;
+	font-size: 1.44rem;
 }
 
 .base-input.lg-input input, .base-input.lg-input select,
 .base-input.lg-input textarea{
-	font-size: 1.62rem;
+	font-size: 1.58rem;
 }
 
 .base-input.outline input, .base-input.outline select,
@@ -907,17 +907,17 @@ All button in the group must be in the same size
 .addon-input.sm-input input, .addon-input.sm-input select,
 .addon-input.sm-input .addon{
 	padding: 0.46em 0.8em;
-	font-size: 1.36rem;
+	font-size: 1.32rem;
 }
 
 .addon-input.md-input input, .addon-input.md-input select,
 .addon-input.md-input .addon{
-	font-size: 1.48rem;
+	font-size: 1.44rem;
 }
 
 .addon-input.lg-input input, .addon-input.lg-input select,
 .addon-input.lg-input .addon{
-	font-size: 1.62rem;
+	font-size: 1.58rem;
 }
 
 /*
