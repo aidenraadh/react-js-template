@@ -739,85 +739,166 @@ All button in the group must be in the same size
 */
 
 /*
-<span class="base-input outline|solid sm-input|md-input|lg-input">
+<span class="base-form outline|solid sm-input|md-input|lg-input">
 	<label for="form">Form name</label>
 	<input id="form" type="text" name="form">
 </span>
 
-<span class="base-input outline|solid sm-input|md-input|lg-input">
+<span class="base-form outline|solid sm-input|md-input|lg-input">
 	<label for="form">Form name</label>
 	<select id="form" name="form"></select>
 </span>
 
-<span class="base-input outline|solid sm-input|md-input|lg-input">
+<span class="base-form outline|solid sm-input|md-input|lg-input">
 	<label for="form">Form name</label>
 	<textarea id="form" name="form"></textarea>
 </span>
 */
 
-.base-input{
+.base-form{
 	display: block;
 }
 
-.base-input.with-btn{
-	position: relative;
-}
-
-.base-input label{
+.base-form .form-label{
 	display: block;
-	margin-bottom: 0.8rem;
+	margin-bottom: 0.6rem;
 	font-size: 1.46rem;
 }
 
-.base-input input, .base-input select, .base-input textarea{
+.base-form .form-control-container{
+	position: relative;
+	display: flex;
+	width: 100%;
+}
+
+.base-form .form-control-container.select::after{
+	content: '';
+	position: absolute;
+	top: 0.8em;
+	right: 1em;
+	border: none;
+	border-radius: 0.1em;
+	border-right: 0.15em solid #7E8299;
+	border-bottom: 0.15em solid #7E8299;
+	width: 0.62em;
+	height: 0.62em;
+	transform: rotate(45deg);
+}
+
+.base-form.addon-right .form-control-container.select::after{
+	top: 0.9em;
+	right: 4.8em;
+}
+
+.base-form .addon{
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	padding: 0.54em 1em;
+	font-size: 1.48rem;
+	color: inherit;
+	background-color: #F3F6F9;
+}
+
+.base-form.outline .addon{
+	border: 0.2rem solid #E4E6EF;
+}
+
+.base-form .addon.left{
+	border-right: none;
+	border-radius: 0.55rem 0 0 0.55rem;
+}
+
+.base-form .addon.right{
+	border-left: none;
+	border-radius: 0 0.55rem 0.55rem 0;
+}
+
+.base-form.solid .addon.left{
+	border-right: 0.2rem solid #E4E6EF;
+}
+
+.base-form.solid .addon.right{
+	border-left: 0.2rem solid #E4E6EF;
+}
+
+.base-form .form-control{
 	width: 100%;
 	display: inline-block;
 	padding: 0.54em 1em;
 	border-radius: 0.55rem;
 	color: inherit;
+	flex-shrink: 1;
 	font-size: 1.48rem;
 }
 
-.base-input.sm-input input, .base-input.sm-input select,
-.base-input.sm-input textarea{
+.base-form.addon-left .form-control{
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.base-form.addon-right .form-control{
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.base-form.sm .form-control,
+.base-form.sm .addon{
 	padding: 0.46em 0.8em;
 	font-size: 1.32rem;
 }
 
-.base-input.md-input input, .base-input.md-input select,
-.base-input.md-input textarea{
+.base-form.md .form-control,
+.base-form.md .addon{
 	font-size: 1.44rem;
 }
 
-.base-input.lg-input input, .base-input.lg-input select,
-.base-input.lg-input textarea{
+.base-form.lg .form-control,
+.base-form.lg .addon{
 	font-size: 1.58rem;
 }
 
-.base-input.outline input, .base-input.outline select,
-.base-input.outline textarea{
+.base-form.outline .form-control{
 	border: 0.2rem solid #E4E6EF;
 	transition: border-color 0.3s;
 }
 
-.base-input.outline input:focus, .base-input.outline select:focus,
-.base-input.outline textarea:focus{
+.base-form.outline .form-control:focus{
 	border-color: #69B3FF;
 }
 
-.base-input.solid input, .base-input.solid select,
-.base-input.solid textarea{
+.base-form.outline.blue .form-control:focus{
+	border-color: #69B3FF;
+}
+
+.base-form.outline.green .form-control:focus{
+	border-color: #1BC5BD;
+}
+
+.base-form.outline.red .form-control:focus{
+	border-color: #F64E60;
+}
+
+.base-form.outline.orange .form-control:focus{
+	border-color: #FFA800;
+}
+
+.base-form.outline.purple .form-control:focus{
+	border-color: #8950FC;
+}
+
+
+.base-form.solid .form-control{
 	border: none;
 	background-color: #F3F6F9;
 	transition: background-color 0.3s;
 }
 
-.base-input.solid input:focus, .base-input.solid select:focus,
-.base-input.solid textarea:focus{
+.base-form.solid .form-control:focus{
 	background-color: #EBEDF3;
 }
 
-.base-input.with-btn .btn-light{
+.base-form .btn-light.text-input-button{
 	transition-property: none;
 	background-color: transparent;
 	position: absolute;
@@ -825,99 +906,29 @@ All button in the group must be in the same size
 	right: 0;
 }
 
-.base-input.with-btn .btn-light.blue .path, 
-.base-input.with-btn .btn-light.blue:hover .path{
+.base-form .btn-light.blue.text-input-button .path, 
+.base-form .btn-light.blue.text-input-button:hover .path{
 	fill: #3699FF !important;
 }
 
-.base-input.with-btn .btn-light.green .path, 
-.base-input.with-btn .btn-light.green:hover .path{
+.base-form .btn-light.green.text-input-button .path, 
+.base-form .btn-light.green.text-input-button:hover .path{
 	fill: #1BC5BD !important;
 }
 
-.base-input.with-btn .btn-light.red .path, 
-.base-input.with-btn .btn-light.red:hover .path{
+.base-form .btn-light.red.text-input-button .path, 
+.base-form .btn-light.red.text-input-button:hover .path{
 	fill: #F64E60 !important;
 }
 
-.base-input.with-btn .btn-light.orange .path, 
-.base-input.with-btn .btn-light.orange:hover .path{
+.base-form .btn-light.orange.text-input-button .path, 
+.base-form .btn-light.orange.text-input-button:hover .path{
 	fill: #FFA800 !important;
 }
 
-.base-input.with-btn .btn-light.purple .path, 
-.base-input.with-btn .btn-light.purple:hover .path{
+.base-form .btn-light.purple.text-input-button .path, 
+.base-form .btn-light.purple.text-input-button:hover .path{
 	fill: #8950FC !important;
-}
-
-/*
-<span class="addon-input  sm-input|md-input|lg-input">
-	<label for="form">Form name</label>
-	<span class="flex-row">
-		<span class="addon" aria-hidde="true">
-			Addon
-		</span>
-		<input id="form" type="text" name="form">
-	</span>
-</span>
-*/
-
-.addon-input{
-	display: block;
-}
-
-.addon-input label{
-	display: block;
-	margin-bottom: 0.8rem;
-	font-size: 1.4rem;
-}
-
-.addon-input .addon{
-	display: inline-block;
-	flex-shrink: 0;
-	padding: 0.54em 1em;
-	border-radius: 0.55rem 0 0 0.55rem;
-	font-size: 1.48rem;
-	color: inherit;
-	border: 0.2rem solid #E4E6EF;
-	border-right: none;
-	background-color: #F3F6F9;
-}
-
-.addon-input input:disabled + .addon,
-.addon-input select:disabled + .addon{
-	opacity: 0.2;
-}
-
-.addon-input input, .addon-input select{
-	display: block;
-	width: 100%;
-	padding: 0.54em 1em;
-	border-radius: 0 0.55rem 0.55rem 0;
-	font-size: 1.8rem;
-	color: inherit;
-	border: 0.2rem solid #E4E6EF;
-	transition: border-color 0.3s;	
-}
-
-.addon-input input:focus, .addon-input select:focus{
-	border-color: #69B3FF;
-}
-
-.addon-input.sm-input input, .addon-input.sm-input select,
-.addon-input.sm-input .addon{
-	padding: 0.46em 0.8em;
-	font-size: 1.32rem;
-}
-
-.addon-input.md-input input, .addon-input.md-input select,
-.addon-input.md-input .addon{
-	font-size: 1.44rem;
-}
-
-.addon-input.lg-input input, .addon-input.lg-input select,
-.addon-input.lg-input .addon{
-	font-size: 1.58rem;
 }
 
 /*
