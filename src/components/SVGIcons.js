@@ -38,7 +38,8 @@ clipboard_check,share
 --------------- GENERAL ---------------
 
 other, search, trash, update, visible, hidden,
-settings, gen017, half_star, star, gen041, gen035, gen034
+settings, gen017, half_star, star, gen041, gen035, gen034, other_circle,
+other_square
 
 --------------- FILES ---------------
 
@@ -51,7 +52,7 @@ angle_left, calendar,angle_double_up,angle_double_right
 
 --------------- CODE ---------------
 
-stop,done_circle, warning_1, warning_2, error_circle
+stop,done_circle, warning_1, warning_2, error_circle, information, question,
 
 --------------- TEXT ---------------
 
@@ -335,11 +336,9 @@ export default function SVGIcons(props){
 		write: (
 			<span className={classes} aria-hidden="true">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" version="1.1" {...props.attr}>
-			    <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-			        <rect x="0" y="0" width="24" height="24"/>
-			        <path className="path" d="M12.2674799,18.2323597 L12.0084872,5.45852451 C12.0004303,5.06114792 12.1504154,4.6768183 12.4255037,4.38993949 L15.0030167,1.70195304 L17.5910752,4.40093695 C17.8599071,4.6812911 18.0095067,5.05499603 18.0083938,5.44341307 L17.9718262,18.2062508 C17.9694575,19.0329966 17.2985816,19.701953 16.4718324,19.701953 L13.7671717,19.701953 C12.9505952,19.701953 12.2840328,19.0487684 12.2674799,18.2323597 Z" fill="#000000" fillRule="nonzero" transform="translate(14.701953, 10.701953) rotate(-135.000000) translate(-14.701953, -10.701953) "/>
-			        <path className="path fade" d="M12.9,2 C13.4522847,2 13.9,2.44771525 13.9,3 C13.9,3.55228475 13.4522847,4 12.9,4 L6,4 C4.8954305,4 4,4.8954305 4,6 L4,18 C4,19.1045695 4.8954305,20 6,20 L18,20 C19.1045695,20 20,19.1045695 20,18 L20,13 C20,12.4477153 20.4477153,12 21,12 C21.5522847,12 22,12.4477153 22,13 L22,18 C22,20.209139 20.209139,22 18,22 L6,22 C3.790861,22 2,20.209139 2,18 L2,6 C2,3.790861 3.790861,2 6,2 L12.9,2 Z"/>
-			    </g>
+					<path className="path fade" fillRule="evenodd" clipRule="evenodd" d="M2 4.63158C2 3.1782 3.1782 2 4.63158 2H13.47C14.0155 2 14.278 2.66919 13.8778 3.04006L12.4556 4.35821C11.9009 4.87228 11.1726 5.15789 10.4163 5.15789H7.1579C6.05333 5.15789 5.15789 6.05333 5.15789 7.1579V16.8421C5.15789 17.9467 6.05333 18.8421 7.1579 18.8421H16.8421C17.9467 18.8421 18.8421 17.9467 18.8421 16.8421V13.7518C18.8421 12.927 19.1817 12.1387 19.7809 11.572L20.9878 10.4308C21.3703 10.0691 22 10.3403 22 10.8668V19.3684C22 20.8218 20.8218 22 19.3684 22H4.63158C3.1782 22 2 20.8218 2 19.3684V4.63158Z" fill="currentColor"/>
+					<path className="path" d="M10.9256 11.1882C10.5351 10.7977 10.5351 10.1645 10.9256 9.77397L18.0669 2.6327C18.8479 1.85165 20.1143 1.85165 20.8953 2.6327L21.3665 3.10391C22.1476 3.88496 22.1476 5.15129 21.3665 5.93234L14.2252 13.0736C13.8347 13.4641 13.2016 13.4641 12.811 13.0736L10.9256 11.1882Z"/>
+					<path className="path" d="M8.82343 12.0064L8.08852 14.3348C7.8655 15.0414 8.46151 15.7366 9.19388 15.6242L11.8974 15.2092C12.4642 15.1222 12.6916 14.4278 12.2861 14.0223L9.98595 11.7221C9.61452 11.3507 8.98154 11.5055 8.82343 12.0064Z"/>
 				</svg>
 			</span>		
 		),
@@ -829,6 +828,43 @@ export default function SVGIcons(props){
 				</svg>
 			</span>
 		),
+		information: (
+			<span className={classes} aria-hidden="true">
+				<svg xmlns="http://www.w3.org/2000/svg" {...props.attr} viewBox="0 0 24 24" fill="none">
+					<rect className="path fade" opacity="0.3" x="2" y="2" width="20" height="20" rx="10"/>
+					<rect className="path" x="11" y="17" width="7" height="2" rx="1" transform="rotate(-90 11 17)"/>
+					<rect className="path" x="11" y="9" width="2" height="2" rx="1" transform="rotate(-90 11 9)"/>
+				</svg>
+			</span>
+		),
+		other_circle: (
+			<span className={classes} aria-hidden="true">
+				<svg xmlns="http://www.w3.org/2000/svg" {...props.attr} viewBox="0 0 24 24" fill="none">
+					<rect className="path fade" x="2" y="2" width="20" height="20" rx="10" fill="currentColor"/>
+					<rect className="path" x="11" y="11" width="2" height="2" rx="1"/>
+					<rect className="path" x="15" y="11" width="2" height="2" rx="1"/>
+					<rect className="path" x="7" y="11" width="2" height="2" rx="1"/>
+				</svg>
+			</span>
+		),
+		other_square: (
+			<span className={classes} aria-hidden="true">
+				<svg xmlns="http://www.w3.org/2000/svg" {...props.attr} viewBox="0 0 24 24" fill="none">
+					<rect className="path fade" x="2" y="2" width="20" height="20" rx="5"/>
+					<rect className="path" x="11" y="11" width="2" height="2" rx="1"/>
+					<rect className="path" x="11" y="15" width="2" height="2" rx="1"/>
+					<rect className="path" x="11" y="7" width="2" height="2" rx="1"/>
+				</svg>
+			</span>
+		),
+		question: (
+			<span className={classes} aria-hidden="true">
+				<svg xmlns="http://www.w3.org/2000/svg" {...props.attr} viewBox="0 0 24 24" fill="none">
+					<rect className="path fade" x="2" y="2" width="20" height="20" rx="10"/>
+					<path className="path" d="M11.276 13.654C11.276 13.2713 11.3367 12.9447 11.458 12.674C11.5887 12.394 11.738 12.1653 11.906 11.988C12.0833 11.8107 12.3167 11.61 12.606 11.386C12.942 11.1247 13.1893 10.896 13.348 10.7C13.5067 10.4947 13.586 10.2427 13.586 9.944C13.586 9.636 13.4833 9.356 13.278 9.104C13.082 8.84267 12.69 8.712 12.102 8.712C11.486 8.712 11.066 8.866 10.842 9.174C10.6273 9.482 10.52 9.82267 10.52 10.196L10.534 10.574H8.826C8.78867 10.3967 8.77 10.2333 8.77 10.084C8.77 9.552 8.90067 9.07133 9.162 8.642C9.42333 8.20333 9.81067 7.858 10.324 7.606C10.8467 7.354 11.4813 7.228 12.228 7.228C13.1987 7.228 13.9687 7.44733 14.538 7.886C15.1073 8.31533 15.392 8.92667 15.392 9.72C15.392 10.168 15.322 10.5507 15.182 10.868C15.042 11.1853 14.874 11.442 14.678 11.638C14.482 11.834 14.2253 12.0533 13.908 12.296C13.544 12.576 13.2733 12.8233 13.096 13.038C12.928 13.2527 12.844 13.528 12.844 13.864V14.326H11.276V13.654ZM11.192 15.222H12.928V17H11.192V15.222Z"/>
+				</svg>
+			</span>
+		)
 	};
 	if(props.getNames){
 		return <span>{Object.keys(icons).toString()}</span>

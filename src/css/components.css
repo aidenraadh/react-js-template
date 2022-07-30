@@ -85,6 +85,10 @@ This is the layout styles of the button
 	font-size: 1.32rem;
 }
 
+.btn.btn-sm.icon-only{
+	padding: 0.46em !important;
+}
+
 .btn.btn-md{
 	font-size: 1.44rem;
 }
@@ -765,15 +769,14 @@ All button in the group must be in the same size
 	font-size: 1.46rem;
 }
 
-.base-form .form-control-container{
-	position: relative;
+.base-form .form-group{
 	display: flex;
 	width: 100%;
 }
 
-.base-form .form-control-container.select::after{
+.base-form .select-arrow{
 	content: '';
-	position: absolute;
+	position: relative;
 	top: 0.8em;
 	right: 1em;
 	border: none;
@@ -785,43 +788,6 @@ All button in the group must be in the same size
 	transform: rotate(45deg);
 }
 
-.base-form.addon-right .form-control-container.select::after{
-	top: 0.9em;
-	right: 4.8em;
-}
-
-.base-form .addon{
-	display: flex;
-	align-items: center;
-	flex-shrink: 0;
-	padding: 0.54em 1em;
-	font-size: 1.48rem;
-	color: inherit;
-	background-color: #F3F6F9;
-}
-
-.base-form.outline .addon{
-	border: 0.2rem solid #E4E6EF;
-}
-
-.base-form .addon.left{
-	border-right: none;
-	border-radius: 0.55rem 0 0 0.55rem;
-}
-
-.base-form .addon.right{
-	border-left: none;
-	border-radius: 0 0.55rem 0.55rem 0;
-}
-
-.base-form.solid .addon.left{
-	border-right: 0.2rem solid #E4E6EF;
-}
-
-.base-form.solid .addon.right{
-	border-left: 0.2rem solid #E4E6EF;
-}
-
 .base-form .form-control{
 	width: 100%;
 	display: inline-block;
@@ -829,7 +795,29 @@ All button in the group must be in the same size
 	border-radius: 0.55rem;
 	color: inherit;
 	flex-shrink: 1;
+	order: 2;
+	border-width: 0.2rem;
+	border-style: solid;
 	font-size: 1.48rem;
+}
+
+.base-form.outline .form-control{
+	border-color: #E4E6EF;
+	transition: border-color 0.3s;
+}
+
+.base-form.solid .form-control{
+	border-color: transparent;
+	background-color: #F3F6F9;
+	transition: background-color 0.3s;
+}
+
+.base-form.solid.addon-left .form-control{
+	border-left-color: #E4E6EF;
+}
+
+.base-form.solid.addon-right .form-control{
+	border-right-color: #E4E6EF;
 }
 
 .base-form.addon-left .form-control{
@@ -840,6 +828,55 @@ All button in the group must be in the same size
 .base-form.addon-right .form-control{
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
+}
+
+.base-form.plain-left .form-control{
+	border-left: none;
+	padding-left: 0;
+}
+
+.base-form.plain-right .form-control{
+	border-right: none;
+	padding-right: 0;
+}
+
+.base-form .addon{
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	padding: 0 1em;
+	font-size: 1.48rem;
+	color: inherit;
+	border-width: 0.2rem;
+	border-style: solid;
+	background-color: #F3F6F9;
+}
+
+.base-form.outline .addon{
+	border-color: #E4E6EF;
+	transition: border-color 0.3s;
+}
+
+.base-form.outline.plain-left .addon,
+.base-form.outline.plain-right .addon{
+	background-color: transparent;
+}
+
+.base-form.solid .addon{
+	border-color: transparent;
+	transition: background-color 0.3s;
+}
+
+.base-form .addon.left{
+	border-right: none;
+	border-radius: 0.55rem 0 0 0.55rem;
+	order: 1;
+}
+
+.base-form .addon.right{
+	border-left: none;
+	border-radius: 0 0.55rem 0.55rem 0;
+	order: 3;
 }
 
 .base-form.sm .form-control,
@@ -858,77 +895,46 @@ All button in the group must be in the same size
 	font-size: 1.58rem;
 }
 
-.base-form.outline .form-control{
-	border: 0.2rem solid #E4E6EF;
-	transition: border-color 0.3s;
-}
-
-.base-form.outline .form-control:focus{
+.base-form.outline .form-control:focus,
+.base-form.outline.plain-left .form-control:focus ~ .addon,
+.base-form.outline.plain-right .form-control:focus ~ .addon{
 	border-color: #69B3FF;
 }
 
-.base-form.outline.blue .form-control:focus{
+.base-form.outline.blue .form-control:focus,
+.base-form.outline.blue.plain-left .form-control:focus ~ .addon,
+.base-form.outline.blue.plain-right .form-control:focus ~ .addon{
 	border-color: #69B3FF;
 }
 
-.base-form.outline.green .form-control:focus{
+.base-form.outline.green .form-control:focus,
+.base-form.outline.green.plain-left .form-control:focus ~ .addon,
+.base-form.outline.green.plain-right .form-control:focus ~ .addon{
 	border-color: #1BC5BD;
 }
 
-.base-form.outline.red .form-control:focus{
+.base-form.outline.red .form-control:focus,
+.base-form.outline.red.plain-left .form-control:focus ~ .addon,
+.base-form.outline.red.plain-right .form-control:focus ~ .addon{
 	border-color: #F64E60;
 }
 
-.base-form.outline.orange .form-control:focus{
+.base-form.outline.orange .form-control:focus,
+.base-form.outline.orange.plain-left .form-control:focus ~ .addon,
+.base-form.outline.orange.plain-right .form-control:focus ~ .addon{
 	border-color: #FFA800;
 }
 
-.base-form.outline.purple .form-control:focus{
+.base-form.outline.purple .form-control:focus,
+.base-form.outline.purple.plain-left .form-control:focus ~ .addon,
+.base-form.outline.purple.plain-right .form-control:focus ~ .addon{
 	border-color: #8950FC;
 }
 
-
-.base-form.solid .form-control{
-	border: none;
-	background-color: #F3F6F9;
-	transition: background-color 0.3s;
-}
-
-.base-form.solid .form-control:focus{
+.base-form.solid .form-control:focus,
+.base-form.solid.plain-left .form-control:focus ~ .addon,
+.base-form.solid.plain-right .form-control:focus ~ .addon{
 	background-color: #EBEDF3;
-}
-
-.base-form .btn-light.text-input-button{
-	transition-property: none;
-	background-color: transparent;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-}
-
-.base-form .btn-light.blue.text-input-button .path, 
-.base-form .btn-light.blue.text-input-button:hover .path{
-	fill: #3699FF !important;
-}
-
-.base-form .btn-light.green.text-input-button .path, 
-.base-form .btn-light.green.text-input-button:hover .path{
-	fill: #1BC5BD !important;
-}
-
-.base-form .btn-light.red.text-input-button .path, 
-.base-form .btn-light.red.text-input-button:hover .path{
-	fill: #F64E60 !important;
-}
-
-.base-form .btn-light.orange.text-input-button .path, 
-.base-form .btn-light.orange.text-input-button:hover .path{
-	fill: #FFA800 !important;
-}
-
-.base-form .btn-light.purple.text-input-button .path, 
-.base-form .btn-light.purple.text-input-button:hover .path{
-	fill: #8950FC !important;
 }
 
 /*
@@ -990,12 +996,12 @@ All button in the group must be in the same size
 	border-radius: 100%;
 }
 
-.multi-choice.basic .checkmark{
+.multi-choice.solid .checkmark{
 	background-color: #EBEDF3;
 	transition: background-color 0.2s ease;	
 }
 
-.multi-choice.basic input:checked ~ .checkmark{
+.multi-choice.solid input:checked ~ .checkmark{
 	background-color: #3699FF;
 }
 
@@ -1021,7 +1027,7 @@ All button in the group must be in the same size
 	transform: rotate(-45deg) translate(0.06em, -0.04em);
 }
 
-.multi-choice.checkbox.basic .checkmark > span{
+.multi-choice.checkbox.solid .checkmark > span{
 	border-left-color: #FFFFFF;
 	border-bottom-color: #FFFFFF;
 }
@@ -1037,7 +1043,7 @@ All button in the group must be in the same size
 	width: 0.5em; height: 0.5em;
 }
 
-.multi-choice.radio.basic .checkmark > span{
+.multi-choice.radio.solid .checkmark > span{
 	background-color: #FFFFFF;
 }
 
@@ -1064,7 +1070,6 @@ All button in the group must be in the same size
 	width: 1em;
 	height: 1em;
 	background-color: #FFFFFF;
-	/* transform: translateX(100%); */
 	transform: translateX(0);
 	transition: transform 0.3s;
 }

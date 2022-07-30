@@ -1,10 +1,9 @@
 import React from 'react';
-import {Button} from './Buttons'
 
 export function TextInput(props){
-	const classes = `base-form ${props.type} ${props.color} ${props.size}` +
-		(props.leftAddon !== undefined ? ' addon-left' : '') +
-		(props.rightAddon !== undefined ? ' addon-right' : '') + 
+	let classes = `base-form ${props.type} ${props.color} ${props.size}` +
+		(props.leftAddon !== undefined ? ` addon-left${props.leftAddon.isPlain ? ' plain-left' : ''}` : '') +
+		(props.rightAddon !== undefined ? ` addon-right${props.rightAddon.isPlain ? ' plain-right' : ''}` : '') + 
 		(props.containerClasses ? ` ${props.containerClasses}` : props.containerClasses)
 
 	let formAttr = {...props.formAttr}
@@ -20,10 +19,18 @@ export function TextInput(props){
 				props.label === undefined ? '' :
 				<label className='form-label' htmlFor={props.formName}>{props.label}</label>
 			}
-			<span className='form-control-container'>
-				{props.leftAddon !== undefined ? <span className='addon left'>{props.leftAddon}</span> : ''}
+			<span className='form-group'>
 				<input className='form-control' {...formAttr} />
-				{props.rightAddon !== undefined ? <span className='addon right'>{props.rightAddon}</span> : ''}
+				{props.leftAddon !== undefined ? 
+					<span className={`addon left`}>
+						{props.leftAddon.content}
+					</span> 
+				: ''}
+				{props.rightAddon !== undefined ? 
+					<span className={`addon right`}>
+						{props.rightAddon.content}
+					</span> 
+				: ''}					
 			</span>
 		</span>		
 	)
@@ -34,8 +41,8 @@ TextInput.defaultProps = {
 	type: 'outline', // String - 'outline'|'solid'
 	size: 'md', // String - 'sm'|'md'|'lg'
 	label: undefined, // String|JSX
-	leftAddon: undefined,
-	rightAddon: undefined,
+	leftAddon: undefined, // {content: 'string', isPlain: false}
+	rightAddon: undefined, // {content: 'string', isPlain: false}
 	color: 'blue', // String - 'blue'|'green'|'red'|'orange'|'purple'
 	containerClasses: '', // String
 	containerAttr: {}, // Object
@@ -44,8 +51,8 @@ TextInput.defaultProps = {
 
 export function Select(props){
 	const classes = `base-form ${props.type} ${props.color} ${props.size}` +
-		(props.leftAddon !== undefined ? ' addon-left' : '') +
-		(props.rightAddon !== undefined ? ' addon-right' : '') + 
+		(props.leftAddon !== undefined ? ` addon-left${props.leftAddon.isPlain ? ' plain-left' : ''}` : '') +
+		(props.rightAddon !== undefined ? ` addon-right${props.rightAddon.isPlain ? ' plain-right' : ''}` : '') + 
 		(props.containerClasses ? ` ${props.containerClasses}` : props.containerClasses)
 
 	let formAttr = {...props.formAttr}
@@ -60,8 +67,7 @@ export function Select(props){
 				props.label === undefined ? '' :
 				<label className='form-label' htmlFor={props.formName}>{props.label}</label>
 			}
-			<span className='form-control-container select'>
-				{props.leftAddon !== undefined ? <span className='addon left'>{props.leftAddon}</span> : ''}
+			<span className='form-group'>				
 				<select className='form-control' {...formAttr}>
 					{props.options.map((option, key) => (
 						<option key={key} value={option.value} {...option.attr}>
@@ -69,7 +75,16 @@ export function Select(props){
 						</option>
 					))}
 				</select>
-				{props.rightAddon !== undefined ? <span className='addon right'>{props.rightAddon}</span> : ''}
+				{props.leftAddon !== undefined ? 
+					<span className={`addon left`}>
+						{props.leftAddon.content}
+					</span> 
+				: ''}
+				{props.rightAddon !== undefined ? 
+					<span className={`addon right`}>
+						{props.rightAddon.content}
+					</span> 
+				: ''}					
 			</span>
 		</span>	
 	);
@@ -84,8 +99,8 @@ Select.defaultProps = {
 		{value: 'Option 1', text: 'Option 1', attr: {}},
 		{value: 'Option 2', text: 'Option 2', attr: {}},
 	], 
-	leftAddon: undefined,
-	rightAddon: undefined,
+	leftAddon: undefined, // {content: 'string', isPlain: false}
+	rightAddon: undefined, // {content: 'string', isPlain: false}
 	color: 'blue', // String - 'blue'|'green'|'red'|'orange'|'purple'
 	containerClasses: '', // String
 	containerAttr: {}, // Object
@@ -95,8 +110,8 @@ Select.defaultProps = {
 
 export function Textarea(props){
 	const classes = `base-form ${props.type} ${props.color} ${props.size}` +
-		(props.leftAddon !== undefined ? ' addon-left' : '') +
-		(props.rightAddon !== undefined ? ' addon-right' : '') + 
+		(props.leftAddon !== undefined ? ` addon-left${props.leftAddon.isPlain ? ' plain-left' : ''}` : '') +
+		(props.rightAddon !== undefined ? ` addon-right${props.rightAddon.isPlain ? ' plain-right' : ''}` : '') + 
 		(props.containerClasses ? ` ${props.containerClasses}` : props.containerClasses)
 
 	let formAttr = {...props.formAttr}
@@ -112,10 +127,18 @@ export function Textarea(props){
 				props.label === undefined ? '' :
 				<label className='form-label' htmlFor={props.formName}>{props.label}</label>
 			}
-			<span className='form-control-container'>
-				{props.leftAddon !== undefined ? <span className='addon left'>{props.leftAddon}</span> : ''}
+			<span className='form-group'>
 				<textarea className='form-control' {...formAttr}></textarea>
-				{props.rightAddon !== undefined ? <span className='addon right'>{props.rightAddon}</span> : ''}
+				{props.leftAddon !== undefined ? 
+					<span className={`addon left`}>
+						{props.leftAddon.content}
+					</span> 
+				: ''}
+				{props.rightAddon !== undefined ? 
+					<span className={`addon right`}>
+						{props.rightAddon.content}
+					</span> 
+				: ''}					
 			</span>
 		</span>	
 	);
@@ -126,8 +149,8 @@ Textarea.defaultProps = {
 	type: 'outline', // String - 'outline'|'solid'
 	size: 'md', // String - 'sm'|'md'|'lg'
 	label: undefined, // String|JSX
-	leftAddon: undefined,
-	rightAddon: undefined,
+	leftAddon: undefined, // {content: 'string', isPlain: false}
+	rightAddon: undefined, // {content: 'string', isPlain: false}
 	color: 'blue', // String - 'blue'|'green'|'red'|'orange'|'purple'	
 	containerClasses: '', // String
 	containerAttr: {}, // Object
@@ -158,7 +181,7 @@ export function Checkbox(props){
 Checkbox.defaultProps = {
 	formName: '', // String
 	size: 'md', // String - 'sm'|'md'|'lg'
-	type: 'outline', // String - 'outline'|'basic'
+	type: 'outline', // String - 'outline'|'solid'
 	label: undefined, // String|JSX
 	value: '', // String
 	classes: '', // String

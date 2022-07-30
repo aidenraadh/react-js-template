@@ -63,6 +63,7 @@
 	}
 
 	.sidebar{
+		max-width: 32rem !important;
 		overflow-y: auto;
 		background-color: #131628;
 		transform: translateX(-100%);
@@ -119,8 +120,8 @@
 		padding: 14rem 3vw 10rem;
 	}
 	.sidebar{
-		width: 60vw;
-	}
+		max-width: 30rem !important;
+	}	
 	.topbar, .toolbar{
 		padding: 1.2rem 3vw;
 	}

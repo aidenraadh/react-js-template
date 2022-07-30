@@ -17,7 +17,7 @@ const navigations = [
   {icon: 'write', text: 'Forms', path: '/forms'},
   {icon: 'share', text: 'Windows', path: '/windows'},
   {icon: 'clipboard_list', text: 'Table', path: '/table'},
-  {icon: 'other', text: 'Miscellaneous', path: '/miscellaneous'},
+  {icon: 'other_square', text: 'Miscellaneous', path: '/miscellaneous'},
   {icon: 'image', text: 'SVG Icons', path: '/svg-icons'},  
 ]
 
