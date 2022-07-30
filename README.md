@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a React JS template. The theme used is inspired by Metronic themes by Keenthemes. Feel free to fork this.\
+This is a React JS template. The theme is coded from scratch by me and inspired by Metronic themes by Keenthemes. Feel free to fork this.\
 Run `docker-compose -f docker-compose.dev.yml up -d` from root folder to run with docker in development mode.
 
 ## Author
